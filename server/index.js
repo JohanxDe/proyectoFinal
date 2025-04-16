@@ -11,7 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: 'https://proyectofinal-1-p5db.onrender.com/', // URL del frontend en Render
+  credentials: true
+}));
 app.use(express.json());
 
 // Rutas
