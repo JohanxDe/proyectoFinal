@@ -1,4 +1,5 @@
 import { useState } from "react";
+const apiBase = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
 
 function CrearPublicacion() {
   const [titulo, setTitulo] = useState("");
@@ -18,7 +19,7 @@ function CrearPublicacion() {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones`, {
+      const response = await fetch(`${apiBase}/api/publicaciones`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+const apiBase = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
 
 function Register() {
   const [nombre, setNombre] = useState('')
@@ -19,7 +20,7 @@ function Register() {
     setError('')
   
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/usuarios/registro`, {
+      const res = await fetch(`${apiBase}/api/usuarios/registro`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

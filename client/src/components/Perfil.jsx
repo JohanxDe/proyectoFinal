@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+const apiBase = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
 
 function Perfil() {
   const [usuario, setUsuario] = useState(null);
@@ -15,7 +16,7 @@ function Perfil() {
 
   const obtenerPerfil = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/usuarios/perfil`, {
+      const res = await fetch(`${apiBase}/api/usuarios/perfil`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -29,7 +30,7 @@ function Perfil() {
 
   const obtenerMisPublicaciones = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones/mias`, {
+      const res = await fetch(`${apiBase}/api/publicaciones/mias`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -43,7 +44,7 @@ function Perfil() {
 
   const obtenerFavoritos = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/favoritos`, {
+      const res = await fetch(`${apiBase}/api/favoritos`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -58,7 +59,7 @@ function Perfil() {
   const marcarFavorito = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/favoritos/${id}`, {
+      const res = await fetch(`${apiBase}/api/favoritos/${id}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -78,7 +79,7 @@ function Perfil() {
   const desmarcarFavorito = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/favoritos/${id}`, {
+      const res = await fetch(`${apiBase}/api/favoritos/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -100,7 +101,7 @@ function Perfil() {
     if (!confirmar) return;
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones/${id}`, {
+      const res = await fetch(`${apiBase}/api/publicaciones/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

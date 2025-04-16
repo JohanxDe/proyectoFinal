@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import React, { useEffect, useState } from 'react';
+const apiBase = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
 
 const Home = () => {
   const [publicaciones, setPublicaciones] = useState([]);
@@ -8,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const obtenerPublicaciones = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones`);
+        const res = await fetch(`${apiBase}/api/publicaciones`);
         const data = await res.json();
         setPublicaciones(data);
       } catch (err) {

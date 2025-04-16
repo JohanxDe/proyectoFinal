@@ -6,12 +6,13 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
+  const apiBase = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/usuarios/login`, {
+      const res = await fetch(`${apiBase}/api/usuarios/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
