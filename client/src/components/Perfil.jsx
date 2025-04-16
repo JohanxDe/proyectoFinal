@@ -15,7 +15,7 @@ function Perfil() {
 
   const obtenerPerfil = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/usuarios/perfil', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/usuarios/perfil`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -29,7 +29,7 @@ function Perfil() {
 
   const obtenerMisPublicaciones = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/publicaciones/mias', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones/mias`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -43,7 +43,7 @@ function Perfil() {
 
   const obtenerFavoritos = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/favoritos', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/favoritos`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -58,7 +58,7 @@ function Perfil() {
   const marcarFavorito = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:3000/api/favoritos/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/favoritos/${id}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ function Perfil() {
   const desmarcarFavorito = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:3000/api/favoritos/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/favoritos/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -100,7 +100,7 @@ function Perfil() {
     if (!confirmar) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/publicaciones/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

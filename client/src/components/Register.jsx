@@ -19,7 +19,7 @@ function Register() {
     setError('')
   
     try {
-      const res = await fetch('http://localhost:3000/api/usuarios/registro', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/usuarios/registro`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

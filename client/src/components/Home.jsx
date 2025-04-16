@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const obtenerPublicaciones = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/publicaciones');
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/publicaciones`);
         const data = await res.json();
         setPublicaciones(data);
       } catch (err) {
