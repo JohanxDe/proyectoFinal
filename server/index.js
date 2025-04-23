@@ -17,6 +17,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
+});
+
 // Rutas
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/publicaciones', publicacionesRoutes)
